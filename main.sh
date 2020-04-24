@@ -11,11 +11,6 @@ source "assets/arguments.sh"
 
 clear && echo -en "\\033]0;${ScriptName} | ${ScriptVersion}\\a"
 
-echo
+check_root && check_bash
 
-check_root
-check_bash
-
-start_script
-
-end_script
+start_script && end_script

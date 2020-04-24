@@ -9,8 +9,8 @@ cd /folder/where/MNS-EAndroid/is/located/at/
 
 sudo bash install.sh -i
 ```
+Run MNS-EAndroid with
 
-After installed you can start with
 ```
 mnsandroid -s
 ```
@@ -20,7 +20,6 @@ mnsandroid -s
 - The author does not hold any responsibility for the bad use of this tool.
 - Use MNS-EAndroid only for educational purposes.
 - This project is licensed under the [**GPL v3.0**](LICENSE.md) license.
-- MNS-EAndroid has no relation with "metasploit-framework" project.
 
 **REMEMBER THAT ATTACKING TARGETS WITHOUT PRIOR CONSENT IS ILLEGAL**
 
@@ -31,8 +30,6 @@ These packages are needed to run MNS-EAndroid, if you don't have them you can in
 ```
 apache2       - sudo apt-get install apache2
 curl          - sudo apt-get install curl
-util-linux    - sudo apt-get install util-linux
-xset          - sudo apt-get install x11-xserver-utils
 
 metasploit-framework
 ```

@@ -1,20 +1,6 @@
 #!/bin/bash
 
-source "plugins/check_root_permission.sh"
-source "plugins/check_bash_version.sh"
-
-check_ipmd() {
-  wan=$(curl -l "https://api.ipify.org")
-  lan=$(ip addr show | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | grep -v "$wan")
-
-  if [ "${IP_MODE}" = "WAN" ]; then
-    LHOST=${wan}
-    LPORT="8080"
-  else
-    LHOST=${lan}
-    LPORT="4444"
-  fi
-}
+source "plugins/common_checks.sh"
 
 start_script() {  clear && echo -en "\n Starting ${ScriptName} ... "
 
