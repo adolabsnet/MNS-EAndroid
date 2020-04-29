@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # PLUGIN NAME = COMMON CHECKS
 # PLUGIN AUTHOR = MidNightSonne

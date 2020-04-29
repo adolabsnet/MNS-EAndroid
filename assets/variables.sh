@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ScriptAuthor="MidNightSonne"
 ScriptName="MNS-EAndroid"
-ScriptVersion="1.1-0"
+ScriptVersion="1.2-0"
 
 ScriptExecutable="mnsandroid"
 
