@@ -2,7 +2,7 @@
 
 ScriptAuthor="MidNightSonne"
 ScriptName="MNS-EAndroid"
-ScriptVersion="1.2-0"
+ScriptVersion="2.0-0"
 
 ScriptExecutable="mnsandroid"
 
